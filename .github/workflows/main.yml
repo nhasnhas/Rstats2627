@@ -3,8 +3,9 @@ name: CD
 on:
   push:
     branches: ["main"]
-  pull_request:
-    branches: ["main"]
+
+permissions:
+  contents: write 
 
 jobs:
   ci:
@@ -17,13 +18,12 @@ jobs:
       - name: Append all files
         run: find . -type f -name '*.R' -exec awk 1 {} + > Rstats2627.R
         
-      - name: Deploy to github releases¡
+      - name: Deploy to github releases
         uses: softprops/action-gh-release@v2
         with:
           tag_name: Latest
+          make_latest: true
           name: ${{ github.ref_name }} - ${{ github.event.head_commit.message }}
           files: ./Rstats2627.R
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
-        
