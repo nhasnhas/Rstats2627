@@ -1,0 +1,29 @@
+name: CD
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Append all files
+        run: find . -type f -name '*.R' -exec awk 1 {} + > Rstats2627.R
+        
+      - name: Deploy to github releases¡
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: Latest
+          name: ${{ github.ref_name }} - ${{ github.event.head_commit.message }}
+          files: ./Rstats2627.R
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+        
