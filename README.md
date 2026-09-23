@@ -30,13 +30,11 @@ This section covers small tutorials for some R features and syntaxt needed to op
 
 1. Imagine you want to create a X and Y dataframe for this data
 
-```json
-{
-    (1,1),
-    (1,4),
-    (2,4),
-    (2,4)
-}
+```
+(1,1),
+(1,4),
+(2,4),
+(2,4)
 ```
 
 2. You may think of it as
@@ -137,7 +135,7 @@ returning
 ```
 
 ###### Filtering data frame
-If we are interested only in certain rows of the dataframe, we may operate using the brackets as seen in the[**Get a column as a dataframe**](#get-a-column-as-a-dataframe) section, where we filtered by column name
+If we are interested only in certain rows of the dataframe, we may operate using the brackets as seen in the [**get a column as a dataframe**](#get-a-column-as-a-dataframe) section, where we filtered by column name
 
 The usual sintax is `df[df$column_to_filter_on operation number ,]`
 
