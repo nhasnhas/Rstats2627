@@ -167,4 +167,8 @@ n_df[n_df$Age==2,][n_df$Height==4,]
 df_age_is_two <- n_df[n_df$Age==2,]
 
 df_age_is_two_and_height_4 <- df_age_is_two[df_age_is_two$Height == 4,]
+
+# well, actually you can do
+n_df[n_df$Age==2 & n_df$Height==4,]
+# but this was an example for chaining filters, and this for combining them
 ```
