@@ -1,4 +1,4 @@
-df_from_n_matrix <- function(Xname, Yname,header_row, header_col, n_matrix){
+nana_df_from_n_matrix <- function(Xname, Yname,header_row, header_col, n_matrix){
   df<- data.frame(X=c(),Y=c(),n=c()) # init empty data frame
   
   # for each cell of the matrix, bind it to the dataframe (as a row, row bind, rbind())
