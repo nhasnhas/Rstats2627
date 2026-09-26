@@ -16,7 +16,7 @@ jobs:
         uses: actions/checkout@v4
 
       - name: Append all files
-        run: find . -type f -name '*.R' -exec awk 1 {} + > Rstats2627.R
+        run: find . -type f -name '*.R' ! -name 'Rstats2627.R' -exec awk 1 {} + > Rstats2627.R
         
       - name: Deploy to github releases
         uses: softprops/action-gh-release@v2
