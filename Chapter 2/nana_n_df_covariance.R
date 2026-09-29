@@ -12,8 +12,8 @@ nana_n_df_covariance <- function(n_df, colX_name, colY_name){
   return (
     (1/nana_n_df_N(n_df)) * 
     sum(
-      (data[[colX_name]]-nana_n_df_mean(n_df,colX_name)) * 
-      (data[[colY_name]]-nana_n_df_mean(n_df,colY_name)) * 
+      (n_df[[colX_name]]-nana_n_df_mean(n_df,colX_name)) * 
+      (n_df[[colY_name]]-nana_n_df_mean(n_df,colY_name)) * 
       data$n
     )
   )
