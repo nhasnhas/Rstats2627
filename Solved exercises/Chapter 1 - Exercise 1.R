@@ -53,7 +53,7 @@ cat("\nc) Interquartile Range of X, IQR =", IQR_X)
 std_dev_X <- nana_standard_deviation(X)
 
 # We will round the result to match the one shown on the exercises sheet:
-cat("\nd) Standard Deviation of X, σ =", round(std_dev_X, digits = 4))
+cat("\nd) Standard Deviation of X, σ =", std_dev_X)
 
 # -----o-----o-----o-----o-----o-----o-----o-----o-----
 # SECTION E) Calculate Pearson's Coefficient of Variation.
@@ -61,8 +61,7 @@ cat("\nd) Standard Deviation of X, σ =", round(std_dev_X, digits = 4))
 # We will use our own formula, even if it is a very simple operation,
 # again rounding it:
 CV_X <- nana_coefficient_of_variation(std_dev_X, X)
-cat("\ne) Pearson's Coefficient of Variation of X, CV =",
-    round(CV_X, digits = 4))
+cat("\ne) Pearson's Coefficient of Variation of X, CV =", CV_X)
 
 # -----o-----o-----o-----o-----o-----o-----o-----o-----
 # SECTION F) Calculate the Skewness Coefficient (or, Coefficient of Asymmetry).
@@ -73,7 +72,7 @@ cat("\ne) Pearson's Coefficient of Variation of X, CV =",
 g1_X <- nana_skewness_Fisher(X)
 
 # Again, we round the result:
-cat("\nf) Fisher's Skewness Coefficient of X, g_1 =", round(g1_X, digits = 4))
+cat("\nf) Fisher's Skewness Coefficient of X, g_1 =", g1_X)
 
 # We specify the type of skew of distribution X:
 if(g1_X > 0) {
