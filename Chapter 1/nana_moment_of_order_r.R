@@ -4,7 +4,8 @@ nana_moment_of_order_r <- function(c_data, r, c) {
   # c = value we subtract from each data point
   # If c = mean(c_data), we get the central moment
   
-  # Special formulas for central moments:
+  # Special formulas:
+  # m_2 = standard_deviation^2 + mean(cdata)^2 
   # mu_3 <- m_3 - 3 * m_2 * mean(c_data) + 2 * mean(c_data)^3
   # mu_4 <- m_4 - 4 * m_3 * mean(c_data) + 6 * m_2 * mean(c_data)^2 - 3 * mean(c_data)^4
 
