@@ -5,8 +5,8 @@ nana_moment_of_order_r <- function(c_data, r, c) {
   # If c = mean(c_data), we get the central moment
   
   # Special formulas for central moments:
-  # mu_3 <- m_3 - 3 * m_2 * x_bar + 2 * x_bar^3
-  # mu_4 <- m_4 - 4 * m_3 * x_bar + 6 * m_2 * x_bar^2 - 3 * x_bar^4
+  # mu_3 <- m_3 - 3 * m_2 * mean(c_data) + 2 * mean(c_data)^3
+  # mu_4 <- m_4 - 4 * m_3 * mean(c_data) + 6 * m_2 * mean(c_data)^2 - 3 * mean(c_data)^4
 
   # we find each different value and its frequency
   frequencies <- table(c_data)
