@@ -5,14 +5,14 @@ source("https://github.com/nhasnhas/Rstats2627/releases/download/Latest/Rstats26
 library(tidyverse)
 
 X <- c(33742, 35401, 36147, 38067, 34149, 36176, 37485, 39047, 34783, 37042, 
-        38008, 40132, 36466, 38680, 39976, 42273, 39131, 40780, 41852, 43684, 
-        38729, 40427, 41576, 43886, 39131, 40394, 40956, 42959, 38714, 40062, 
-        41152, 43460, 38695, 39780, 40923, 44093, 40777, 41778, 43160, 45897, 
-        41947, 44061, 44378, 47237, 43315, 43396, 44843, 46835, 42833, 43548, 
-        44637, 47107, 42552, 43526, 45039, 47940, 43740, 45007, 46667, 49325, 
-        44878, 46234, 47055, 50318, 46354, 47260, 48883, 52605, 48527, 50237,
-        51592, 55152, 50451, 52294, 54633, 58802, 53990, 55477, 57850, 
-        61978)
+       38008, 40132, 36466, 38680, 39976, 42273, 39131, 40780, 41852, 43684, 
+       38729, 40427, 41576, 43886, 39131, 40394, 40956, 42959, 38714, 40062, 
+       41152, 43460, 38695, 39780, 40923, 44093, 40777, 41778, 43160, 45897, 
+       41947, 44061, 44378, 47237, 43315, 43396, 44843, 46835, 42833, 43548, 
+       44637, 47107, 42552, 43526, 45039, 47940, 43740, 45007, 46667, 49325, 
+       44878, 46234, 47055, 50318, 46354, 47260, 48883, 52605, 48527, 50237,
+       51592, 55152, 50451, 52294, 54633, 58802, 53990, 55477, 57850, 
+       61978)
 
 # Indicate the frequency of the seasonal component (quarterly car sales data):
 qrt_car_sales <- ts(X, start = c(1969, 1), frequency = 4)
@@ -61,11 +61,18 @@ cat(paste0("\nNormalized seasional Component:\n{",
 # the true underlying trend and allow for accurate period-to-period comparisons.
 deseasonalized_Mult <- qrt_car_sales / seasonal_Mult
 cat(paste0("\nDeseasonalized Series:\n{", 
-           paste(des_seasonalM, collapse = ", "), "}\n"))
+           paste(deseasonalized_Mult, collapse = ", "), "}\n"))
 
 lines(deseasonalized_Mult, col = "green")
 
+# We will calculate the Regression Line (True Trend).
+# It establishes the global trajectory of your data over time, which is
+# essential for forecasting future values:
+time_sequence_cars <- seq_along(qrt_car_sales)
+model <- lm(deseasonalized_Mult ~ time_sequence_cars)
+regression_line_cars <- ts(predict.lm(model), start = c(1969, 1), frequency = 4)
 
-
-
+# We plot the deseasonalized series and overlay the regression line in red
+plot(deseasonalized_Mult, col = "purple")
+lines(regression_line_cars, col = "lightcoral")
 
