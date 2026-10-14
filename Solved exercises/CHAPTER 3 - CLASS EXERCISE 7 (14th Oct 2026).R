@@ -84,3 +84,11 @@ print(coef(model)[2], digits = 6)
 # We plot the deseasonalized series and overlay the regression line in red
 plot(deseasonalized_Mult, col = "purple")
 lines(regression_line_unemployment, col = "lightcoral")
+
+# We calculate the autocorrelation of the Unemployment Report to detect if there
+# is a cycle of frequency/period 4. If autoCorrel ≈ 1, there there is a cycle:
+autoCorrel_unemployment <- nana_autoCorrel(X, 4)
+cat("\nAutocorrelation of Unemployment Report:", autoCorrel_unemployment)
+
+hasCycle <- identical(1, round(autoCorrel_unemployment, digits = 0))
+cat("\nDoes the Unemployment Report data have a cycle?:", hasCycle)
