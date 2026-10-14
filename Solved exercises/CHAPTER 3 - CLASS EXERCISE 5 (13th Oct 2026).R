@@ -73,6 +73,8 @@ lines(deseasonalized_Mult, col = "green")
 time_sequence_bugs <- seq_along(bug_report_time_seq)
 model <- lm(deseasonalized_Mult ~ time_sequence_bugs)
 regression_line_bugs <- ts(predict.lm(model), start = c(2019, 1), frequency = 4)
+cat("\nModel:")
+print(model)
 
 # We plot the deseasonalized series and overlay the regression line in red
 plot(deseasonalized_Mult, col = "purple")
