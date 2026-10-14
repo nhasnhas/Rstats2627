@@ -97,6 +97,8 @@ time_sequence_report <- seq_along(monthly_report_time_seq)
 model <- lm(deseasonalized_Mult ~ time_sequence_report)
 regression_line_report <- ts(predict.lm(model), 
                              start = c(1976, 1), frequency = 12)
+cat("\nModel:")
+print(model)
 
 
 # ############################### SECTION 4.) ###############################
