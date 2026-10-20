@@ -1,0 +1,4 @@
+nana_coefficient_of_determination <- function(Y, MSE) {
+  R2 <- 1 - MSE / (nana_standard_deviation(Y))^2
+  return(R2)
+}
