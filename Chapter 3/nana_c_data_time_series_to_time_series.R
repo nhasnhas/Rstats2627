@@ -4,12 +4,10 @@ nana_c_data_time_series_to_time_series <- function(
   year_of_start,
   month_or_quarter_of_start
 ) {
-  # alias function
-
-  nana_c_data_time_series_to_df(
+  ts(
     c_data,
-    number_of_groups,
-    year_of_start,
-    month_or_quarter_of_start
-  )
+    c(
+      year_of_start,
+      month_or_quarter_of_start),
+    frequency = number_of_groups)
 }
