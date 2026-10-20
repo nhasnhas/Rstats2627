@@ -1,5 +1,5 @@
 nana_normal_eq_exponential_fitting_y_equals_ae_pow_bx <- function(
-    y,x
+    x,y
 ) {
   lny=log(y)
   
