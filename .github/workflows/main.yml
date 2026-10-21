@@ -27,3 +27,13 @@ jobs:
           files: ./Rstats2627.R
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Warn function without extension
+        run: |
+          # Find regular files without an extension, ignoring .git directories
+          NO_EXT=$(find . -not -path '*/.*' -type f ! -name "*.*")
+          if [ -n "$NO_EXT" ]; then
+            echo "::error::Files without extension found!"
+            echo "$NO_EXT"
+            exit 1
+          fi
