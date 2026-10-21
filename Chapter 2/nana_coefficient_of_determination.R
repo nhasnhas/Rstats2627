@@ -1,4 +1,6 @@
 nana_coefficient_of_determination <- function(Y, MSE) {
+    # takes a c_data Y and its MSE
+  
     # returns R^2
     # R2 = 1 -> perfect fit
     # R2 = 0 -> the fit explains nothing
