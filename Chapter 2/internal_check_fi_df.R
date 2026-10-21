@@ -27,7 +27,7 @@ internal_check_fi_df <- function(fi_df, columns=NULL){
     
     stop(
       paste(c(
-        "\nthe columns \"",
+        "\nthe column(s) \"",
         not_found_cols_as_string,
         "\" were expected in the df, but not found.\n",
         

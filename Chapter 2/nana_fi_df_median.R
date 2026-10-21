@@ -1,5 +1,5 @@
 nana_fi_df_median <- function(fi_df, col_name) {
-  fi_df <- internal_check_fi_df(fi_df)
+  fi_df <- internal_check_fi_df(fi_df, c(col_name))
   
   # Ensure the data is sorted by the target column
   fi_df <- fi_df[order(fi_df[[col_name]]), ]
