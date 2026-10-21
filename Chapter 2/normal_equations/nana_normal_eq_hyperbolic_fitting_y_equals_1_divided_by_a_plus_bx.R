@@ -20,7 +20,8 @@ nana_normal_eq_hyperbolic_fitting_y_equals_1_divided_by_a_plus_bx <- function(
       MSE = MSE,
       coefficients = list(
         a=a,
-        b=b)
+        b=b),
+      R_squared = nana_coefficient_of_determination(y, MSE)
     )
   )
 }

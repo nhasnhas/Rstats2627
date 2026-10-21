@@ -21,7 +21,8 @@ nana_normal_eq_exponential_fitting_y_equals_ae_pow_bx <- function(
       MSE = MSE,
       coefficients = list(
         a=a,
-        b=b)
+        b=b),
+      R_squared = nana_coefficient_of_determination(y, MSE)
     )
   )
 }

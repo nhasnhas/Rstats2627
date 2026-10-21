@@ -20,7 +20,8 @@ nana_normal_eq_quadratic_fitting_y_equals_ax2_plus_bx_plus_c <- function(
       coefficients = list(
         a=a,
         b=b,
-        c=c)
+        c=c),
+      R_squared = nana_coefficient_of_determination(y, MSE)
     )
   )
 }

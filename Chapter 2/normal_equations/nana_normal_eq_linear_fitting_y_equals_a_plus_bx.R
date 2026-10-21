@@ -18,7 +18,8 @@ nana_normal_eq_linear_fitting_y_equals_a_plus_bx <- function(x,y){
       MSE = MSE,
       coefficients = list(
         a=a,
-        b=b)
+        b=b),
+      R_squared = nana_coefficient_of_determination(y, MSE)
     )
   )
 }
