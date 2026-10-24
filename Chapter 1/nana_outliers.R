@@ -1,8 +1,8 @@
 nana_outliers <- function(c_data, lower_quantile_percentage, upper_quantile_percentage, reference = "quantile", range_outliers = 1.5) {
   
   # calculate the quantile
-  Q_lower <- quantile(c_data, lower_quantile_percentage)
-  Q_higher <- quantile(c_data, upper_quantile_percentage)
+  Q_lower <- nana_quantile(c_data, lower_quantile_percentage)
+  Q_higher <- nana_quantile(c_data, upper_quantile_percentage)
   
   # calculate the interquantile range
   interquantile <- Q_higher - Q_lower
