@@ -5,7 +5,7 @@ source("https://github.com/nhasnhas/Rstats2627/releases/download/Latest/Rstats26
 
 nana_barplot_template <- function(c_data) {
   # 1.) Define the heights of the bars and their labels
-  frequencies <- c(c_data)
+  frequencies <- c_data
   categories <- c("Group A", "Group B", "Group C", "Group D") 
                                                     # one category for each 
                                                     # element of c_data
