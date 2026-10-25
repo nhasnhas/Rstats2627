@@ -1,7 +1,7 @@
 nana_n_df_linear_regression <- function(n_df, colX_name, colY_name){
   # Takes a n_df and two column names, for calculating R_{X/Y}
   
-  # Returns a c() with the intercept (a) and slope (b) (x=a+b*y) 
+  # Returns a c() with the intercept (a) and slope (b) (y=a+b*x) 
   # Examples:
   #   nana_n_df_linear_regression(data, "X", "Y")
   #   nana_n_df_linear_regression(n_df, "Height", "Weight")
