@@ -1,3 +1,5 @@
+source("https://github.com/nhasnhas/Rstats2627/releases/download/Latest/Rstats2627.R")
+
 # Just a function that serves as a template to build your own bar/rectangle
 # diagram, changing the variables as desired
 
