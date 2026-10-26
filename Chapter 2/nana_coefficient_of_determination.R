@@ -4,6 +4,8 @@ nana_coefficient_of_determination <- function(Y, MSE) {
     # returns R^2
     # R2 = 1 -> perfect fit
     # R2 = 0 -> the fit explains nothing
+  
+    # ctrl +F: R2, R squared
   R2 <- 1 - MSE / (nana_standard_deviation(Y))^2
   return(R2)
 }
