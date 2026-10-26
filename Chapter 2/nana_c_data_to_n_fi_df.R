@@ -1,4 +1,6 @@
 nana_c_data_to_n_fi_df <- function(c_data, col_name = "X"){
+  # converts c_data into a frequency table/data frame, including xi, ni, fi
+  
   xi <- unique(c_data)
   ni <- c()
   for (x in xi) {
