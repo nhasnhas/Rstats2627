@@ -1,4 +1,3 @@
-source("https://github.com/nhasnhas/Rstats2627/releases/download/Latest/Rstats2627.R")
 
 nana_weighted_mean <- function(xi, wi) {
   # Calculates the weighted mean of a vector composed by xi, with weights wi

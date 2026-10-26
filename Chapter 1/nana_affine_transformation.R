@@ -1,5 +1,3 @@
-source("https://github.com/nhasnhas/Rstats2627/releases/download/Latest/Rstats2627.R")
-
 # Function to calculate the affine transformation:
 # Y = a + (b * X); that is, y_i = a + (b * x_i).
 # Therefore: mean_y = a + (mean_x * b)
