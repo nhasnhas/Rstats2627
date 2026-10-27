@@ -5,7 +5,7 @@ on:
     branches: ["main"]
 
 permissions:
-  contents: write 
+  contents: write
 
 jobs:
   deploy:
@@ -17,17 +17,31 @@ jobs:
 
       - name: Append all files
         run: find . -type f \( -name 'nana_*.R' -o -name 'internal_*.R' -o -name 'auto_*.R' \) ! -name 'Rstats2627.R' -exec awk 1 {} + > Rstats2627.R
-        
+
+      - name: Download PortableGit installers
+        run: |
+          curl -fL --retry 3 \
+            -o PortableGit-2.56.0.4-64-bit.7z.exe \
+            https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.4/PortableGit-2.56.0.4-64-bit.7z.exe
+          curl -fL --retry 3 \
+            -o PortableGit-2.56.0.4-arm64.7z.exe \
+            https://github.com/git-for-windows/git/releases/download/v2.56.0.windows.4/PortableGit-2.56.0.4-arm64.7z.exe
+
+      - name: Zip project and generated file
+        run: zip -r Rstats2627.zip . -x "./Solved exercises/*" "./Solved exercises/**" "./.git/*" "./.git/**" "./Rstats2627.zip"
+
       - name: Deploy to github releases
         uses: softprops/action-gh-release@v2
         with:
           tag_name: Latest
           make_latest: true
           name: ${{ github.ref_name }} - ${{ github.event.head_commit.message }}
-          files: ./Rstats2627.R
+          files: |
+            ./Rstats2627.R
+            ./Rstats2627.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          
+
       - name: Warn function without extension
         run: |
           # Find regular files without an extension, ignoring .git directories
