@@ -26,7 +26,16 @@ jobs:
           fi
 
       - name: Append all files
-        run: find . -type f \( -name 'nana_*.R' -o -name 'internal_*.R' -o -name 'auto_*.R' \) ! -name 'Rstats2627.R' -exec awk 1 {} + > Rstats2627.R
+        run: |
+          # Existing mega file
+          find . -type f \( -name 'nana_*.R' -o -name 'internal_*.R' -o -name 'auto_*.R' \) ! -name 'Rstats2627.R' -exec awk 1 {} + > Rstats2627.R
+
+          # Generate one mega file per Chapter folder
+          find . -type d -regex '.*/Chapter [0-9]+' | sort | while IFS= read -r chapter_dir; do
+            chapter_num=$(basename "$chapter_dir" | sed -E 's/^Chapter[[:space:]]+([0-9]+)$/\1/')
+            mega_file="./megaChapter${chapter_num}.R"
+            find "$chapter_dir" -type f \( -iname '*.R' -o -iname '*.r' \) -exec awk 1 {} + > "$mega_file"
+          done
 
       - name: Download PortableGit installers
         run: |
@@ -48,7 +57,7 @@ jobs:
           name: ${{ github.ref_name }} - ${{ github.event.head_commit.message }}
           files: |
             ./Rstats2627.R
+            ./megaChapter*.R
             ./Rstats2627.zip
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
